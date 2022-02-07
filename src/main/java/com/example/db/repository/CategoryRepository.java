@@ -5,8 +5,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
+
+    @Query(value="select * from category where category_id=?", nativeQuery = true)
+    Optional<Category> findByCategoryId();
 
     @Query(value="select distinct c.category_id, c.category_name,\n" +
             "case when tabela.naracan_proizvod >= 1 then tabela.naracan_proizvod else 0 end as naracani_proizvodi\n" +

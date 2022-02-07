@@ -4,7 +4,6 @@ import com.example.db.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,4 +13,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     @Query(value="select * from product where product_id=?",nativeQuery = true)
     Optional<Product> findProductByProductId();
+
+    @Query(value="select * from product where category_id=?", nativeQuery = true)
+    Optional<Product> findProductByCategory(Integer category_id);
 }

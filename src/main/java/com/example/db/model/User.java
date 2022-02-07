@@ -15,7 +15,7 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer user_id;
-    private String name;
+    private String user_name;
     private String surname;
     private String email;
     private String username;
@@ -25,7 +25,7 @@ public class User implements UserDetails {
 
     public User(Integer user_id, String name, String surname, String email, String username, String password) {
         this.user_id = user_id;
-        this.name = name;
+        this.user_name = user_name;
         this.surname = surname;
         this.email = email;
         this.username = username;
@@ -41,11 +41,11 @@ public class User implements UserDetails {
     }
 
     public String getName() {
-        return name;
+        return user_name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.user_name = user_name;
     }
 
     public String getSurname() {

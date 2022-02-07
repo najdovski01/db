@@ -1,10 +1,11 @@
 package com.example.db.model.Catalogue;
 
+import com.example.db.model.Exists.Exists;
+import com.example.db.model.OnlineStores;
+import com.example.db.model.ShoppingBag;
 import lombok.Data;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Data

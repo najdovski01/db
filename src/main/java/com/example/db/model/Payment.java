@@ -25,6 +25,10 @@ public class Payment {
         this.shoppingBag = shoppingBag;
     }
 
+    public Payment() {
+
+    }
+
     public Integer getPayment_id() {
         return payment_id;
     }

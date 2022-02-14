@@ -23,11 +23,10 @@ public class OrdersCompositeKey implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="price_id")
+    @JoinColumn(name="product_in_store_id")
     public Price price;
 
-    @ManyToOne
-    @JoinColumn(name="product_in_store_id")
-    public ProductInStore productInStore;
+
 
     public ShoppingBag getShoppingBag() {
         return shoppingBag;
@@ -37,9 +36,7 @@ public class OrdersCompositeKey implements Serializable {
         return price;
     }
 
-    public ProductInStore  getproductInStore() {
-        return productInStore;
-    }
+
 
     public void setShoppingBag(ShoppingBag shoppingBag) {
         this.shoppingBag = shoppingBag;
@@ -49,9 +46,6 @@ public class OrdersCompositeKey implements Serializable {
         this.price = price;
     }
 
-    public void setProductInStore(ProductInStore productInStore) {
-        this.productInStore = productInStore;
-    }
 
 
 

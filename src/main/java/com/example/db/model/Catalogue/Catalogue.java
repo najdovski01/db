@@ -15,6 +15,7 @@ public class Catalogue {
     @EmbeddedId
     public CatalogueCompositeKey catalogueCompositeKey;
 
+    @Column(name = "catalogue_id", insertable = false, updatable = false)
     Integer catalogue_id;
     String catalogue_from;
     String catalogue_to;

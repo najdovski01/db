@@ -16,17 +16,17 @@ import java.io.Serializable;
 @Embeddable
 public class ExistsCompositeKey implements Serializable {
 
+
     @ManyToOne
     @JoinColumn(name="catalogue_id")
+    @JoinColumn(name="store_id")
     public Catalogue catalogue;
 
     @ManyToOne
     @JoinColumn(name="product_in_store_id")
     public ProductInStore productInStore;
 
-    @ManyToOne
-    @JoinColumn(name="store_id")
-    public OnlineStores onlineStores;
+
 
     public Catalogue getCatalogue() {
         return catalogue;
@@ -44,11 +44,5 @@ public class ExistsCompositeKey implements Serializable {
         this.productInStore = productInStore;
     }
 
-    public OnlineStores getOnlineStores() {
-        return onlineStores;
-    }
 
-    public void setOnlineStores(OnlineStores onlineStores) {
-        this.onlineStores = onlineStores;
-    }
 }

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.time.ZonedDateTime;
 
 @Entity
 @Data
@@ -18,8 +19,8 @@ public class WorksAs {
     @EmbeddedId
     private WorksAsCompositeKey worksAsCompositeKey;
 
-    String works_from;
-    String works_to;
+    ZonedDateTime works_from;
+    ZonedDateTime works_to;
 
     public WorksAsCompositeKey getWorksAsCompositeKey() {
         return worksAsCompositeKey;
@@ -29,19 +30,19 @@ public class WorksAs {
         this.worksAsCompositeKey = worksAsCompositeKey;
     }
 
-    public String getWorks_from() {
+    public ZonedDateTime getWorks_from() {
         return works_from;
     }
 
-    public void setWorks_from(String works_from) {
+    public void setWorks_from(ZonedDateTime works_from) {
         this.works_from = works_from;
     }
 
-    public String getWorks_to() {
+    public ZonedDateTime getWorks_to() {
         return works_to;
     }
 
-    public void setWorks_to(String works_to) {
+    public void setWorks_to(ZonedDateTime works_to) {
         this.works_to = works_to;
     }
 }

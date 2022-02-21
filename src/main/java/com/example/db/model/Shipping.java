@@ -3,6 +3,7 @@ package com.example.db.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.ZonedDateTime;
 
 @Entity
 @Data
@@ -12,8 +13,8 @@ public class Shipping {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer shipping_id;
     String locations;
-    String date_from;
-    String date_to;
+    ZonedDateTime date_from;
+    ZonedDateTime date_to;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -23,7 +24,7 @@ public class Shipping {
     @JoinColumn(name = "shopping_id")
     public ShoppingBag shoppingBag;
 
-    public Shipping(Integer shipping_id, String locations, String date_from, String date_to, User user, ShoppingBag shoppingBag) {
+    public Shipping(Integer shipping_id, String locations, ZonedDateTime date_from, ZonedDateTime date_to, User user, ShoppingBag shoppingBag) {
         this.shipping_id = shipping_id;
         this.locations = locations;
         this.date_from = date_from;
@@ -52,19 +53,19 @@ public class Shipping {
         this.locations = locations;
     }
 
-    public String getDate_from() {
+    public ZonedDateTime getDate_from() {
         return date_from;
     }
 
-    public void setDate_from(String date_from) {
+    public void setDate_from(ZonedDateTime date_from) {
         this.date_from = date_from;
     }
 
-    public String getDate_to() {
+    public ZonedDateTime getDate_to() {
         return date_to;
     }
 
-    public void setDate_to(String date_to) {
+    public void setDate_to(ZonedDateTime date_to) {
         this.date_to = date_to;
     }
 

@@ -5,6 +5,7 @@ import com.example.db.exceptions.UserAlreadyExistsException;
 import com.example.db.model.User;
 import com.example.db.repository.UserRepository;
 import com.example.db.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;

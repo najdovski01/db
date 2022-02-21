@@ -6,6 +6,7 @@ import com.example.db.model.ShoppingBag;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.ZonedDateTime;
 
 @Entity
 @Data
@@ -15,13 +16,13 @@ public class Catalogue {
     @EmbeddedId
     public CatalogueCompositeKey catalogueCompositeKey;
 
-    @Column(name = "catalogue_id", insertable = false, updatable = false)
+    @Column(name = "catalogue_id", insertable=false, updatable = false)
     Integer catalogue_id;
-    String catalogue_from;
-    String catalogue_to;
+    ZonedDateTime catalogue_from;
+    ZonedDateTime catalogue_to;
     String type_;
 
-    public Catalogue(CatalogueCompositeKey catalogueCompositeKey, Integer catalogue_id, String catalogue_from, String catalogue_to, String type_) {
+    public Catalogue(CatalogueCompositeKey catalogueCompositeKey, Integer catalogue_id, ZonedDateTime catalogue_from, ZonedDateTime catalogue_to, String type_) {
         this.catalogueCompositeKey = catalogueCompositeKey;
         this.catalogue_id = catalogue_id;
         this.catalogue_from = catalogue_from;
@@ -49,19 +50,19 @@ public class Catalogue {
         this.catalogue_id = catalogue_id;
     }
 
-    public String getCatalogue_from() {
+    public ZonedDateTime getCatalogue_from() {
         return catalogue_from;
     }
 
-    public void setCatalogue_from(String catalogue_from) {
+    public void setCatalogue_from(ZonedDateTime catalogue_from) {
         this.catalogue_from = catalogue_from;
     }
 
-    public String getCatalogue_to() {
+    public ZonedDateTime getCatalogue_to() {
         return catalogue_to;
     }
 
-    public void setCatalogue_to(String catalogue_to) {
+    public void setCatalogue_to(ZonedDateTime catalogue_to) {
         this.catalogue_to = catalogue_to;
     }
 

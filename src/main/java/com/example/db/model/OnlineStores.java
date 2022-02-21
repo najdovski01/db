@@ -13,11 +13,11 @@ public class OnlineStores {
     Integer store_id;
     String names;
     String web_address;
-    Integer phone_number;
+    String phone_number;
     String email;
     String social_media;
 
-    public OnlineStores(Integer store_id, String names, String web_address, Integer phone_number, String email, String social_media) {
+    public OnlineStores(Integer store_id, String names, String web_address, String phone_number, String email, String social_media) {
         this.store_id = store_id;
         this.names = names;
         this.web_address = web_address;
@@ -54,11 +54,11 @@ public class OnlineStores {
         this.web_address = web_address;
     }
 
-    public Integer getPhone_number() {
+    public String getPhone_number() {
         return phone_number;
     }
 
-    public void setPhone_number(Integer phone_number) {
+    public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
 

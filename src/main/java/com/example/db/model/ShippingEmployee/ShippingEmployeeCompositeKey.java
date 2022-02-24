@@ -32,4 +32,3 @@ public class ShippingEmployeeCompositeKey implements Serializable {
         this.user = user;
     }
 }
-

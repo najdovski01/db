@@ -2,23 +2,23 @@ package com.example.db.model.Client;
 
 import lombok.Data;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-@Table
+@Table(schema="project")
 @Entity
 @Data
 public class Client {
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer client_number_id;
+
     @EmbeddedId
     private ClientCompositeKey clientCompositeKey;
 
-    Integer client_number;
 
-    public Client(ClientCompositeKey clientCompositeKey, Integer client_number) {
+    public Client(ClientCompositeKey clientCompositeKey, Integer client_number_id) {
         this.clientCompositeKey = clientCompositeKey;
-        this.client_number = client_number;
+        this.client_number_id = client_number_id;
     }
 
     public Client() {
@@ -34,10 +34,10 @@ public class Client {
     }
 
     public Integer getClient_number() {
-        return client_number;
+        return client_number_id;
     }
 
     public void setClient_number(Integer client_number) {
-        this.client_number = client_number;
+        this.client_number_id = client_number_id;
     }
 }

@@ -1,5 +1,4 @@
 package com.example.db.controller;
-
 import com.example.db.exceptions.InvalidArgumentsException;
 import com.example.db.service.AuthService;
 import com.example.db.service.UserService;

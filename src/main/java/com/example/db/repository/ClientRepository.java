@@ -45,7 +45,7 @@ public interface ClientRepository extends JpaRepository<Client, ClientCompositeK
             "JOIN client AS c2 ON c2.user_id = sb2.user_id\n" +
             "GROUP BY 1,2\n" +
             ") AS tabela ON c.user_id = tabela.user_id",nativeQuery = true)
-             public List<Client> findLoyalClient(Integer shopping_id);
+    public List<Client> findLoyalClient(Integer shopping_id);
 
 
 }

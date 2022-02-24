@@ -35,7 +35,7 @@ public class ShoppingBagServiceImpl implements ShoppingBagService {
         User user = this.userRepository.findById(Integer.valueOf(user_id)).get();
         ClientCompositeKey clientCompositeKey = new ClientCompositeKey();
         clientCompositeKey.setUser(user);
-             Client client = this.clientRepository.findById(clientCompositeKey).get();
-             return null;
-             }
+        Client client = this.clientRepository.findById(clientCompositeKey).get();
+        return null;
+    }
 }

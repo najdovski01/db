@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Data
-@Table(name="orders")
+@Table(name="orders", schema="project")
 public class Orders {
 
     @EmbeddedId

@@ -1,8 +1,5 @@
 package com.example.db.model.Catalogue;
 
-import com.example.db.model.Exists.Exists;
-import com.example.db.model.OnlineStores;
-import com.example.db.model.ShoppingBag;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -10,7 +7,7 @@ import java.time.ZonedDateTime;
 
 @Entity
 @Data
-@Table(name="catalogue")
+@Table(name="catalogue", schema="project")
 public class Catalogue {
 
     @EmbeddedId

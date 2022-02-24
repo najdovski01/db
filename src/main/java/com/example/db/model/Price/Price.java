@@ -10,7 +10,7 @@ import java.time.ZonedDateTime;
 
 @Entity
 @Data
-@Table(name="price")
+@Table(name="price", schema="project")
 
 public class Price {
 

@@ -28,7 +28,8 @@ public class ShoppingBagServiceImpl implements ShoppingBagService {
 
     @Override
     public Optional<ShoppingBag> findAll() {
-        return this.shoppingBagRepository.findAllShoppingBags();
+        //return this.shoppingBagRepository.findAllShoppingBags();
+        return null;
     }
     @Override
     public Optional<ShoppingBag> save(Integer shopping_id, String order_date, String shipping_date, String modified, Integer user_id) {

@@ -10,7 +10,7 @@ import java.util.List;
 
 
 public interface CatalogueRepository extends JpaRepository<Catalogue, CatalogueCompositeKey> {
-
-    @Query(value="select * from catalogue",nativeQuery = true)
-    List<Catalogue> findAllCatalogues();
+//
+//    @Query(value="select * from catalogue",nativeQuery = true)
+//    List<Catalogue> findAllCatalogues();
 }

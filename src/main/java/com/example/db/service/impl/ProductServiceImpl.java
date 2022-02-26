@@ -45,7 +45,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Optional<Product> findByCategoryId(Integer category_id) {
-        return this.productRepository.findProductByCategory(category_id);
+        //return this.productRepository.findProductByCategory(category_id);
+        return null;
     }
 
     @Override

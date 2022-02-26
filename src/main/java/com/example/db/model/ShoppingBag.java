@@ -7,7 +7,7 @@ import java.time.ZonedDateTime;
 
 @Entity
 @Data
-@Table(name="shopping_bag", schema="project")
+@Table(name="shopping_bag")
 public class ShoppingBag {
 
     @Id

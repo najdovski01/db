@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Data
-@Table(name="exists", schema="project")
+@Table(name="exists")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Exists {

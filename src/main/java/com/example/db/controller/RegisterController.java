@@ -26,8 +26,8 @@ public class RegisterController {
             model.addAttribute("hasError", true);
             model.addAttribute("error", error);
         }
-        model.addAttribute("bodyContent","register");
-        return "master-template";
+       // model.addAttribute("bodyContent","register");
+        return "register";
     }
     @PostMapping
     public String register(@RequestParam(required = false) Integer user_id,

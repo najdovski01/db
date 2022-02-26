@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name="category", schema="project")
+@Table(name="category")
 
 public class Category {
 

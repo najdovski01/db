@@ -11,7 +11,7 @@ import java.time.ZonedDateTime;
 
 @Entity
 @Data
-@Table(name="works_as", schema="project")
+@Table(name="works_as")
 @NoArgsConstructor
 @AllArgsConstructor
 public class WorksAs {

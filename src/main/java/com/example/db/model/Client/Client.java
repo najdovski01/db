@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-@Table(schema="project")
+@Table
 @Entity
 @Data
 public class Client {

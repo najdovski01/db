@@ -8,12 +8,12 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
-
-
-    @Query(value = "select * from users where username=? and user_password=?", nativeQuery = true)
+public interface UserRepository extends JpaRepository<User, Integer>
+{
+    @Query(value="select * from users where username=? AND password=?",nativeQuery = true)
     Optional<User> findByUsernameAndPassword(String username, String password);
 
-    @Query(value = "select * from users where username=?", nativeQuery = true)
+    @Query(value="select * from users where username=?",nativeQuery = true)
     Optional<User> findByUsername(String username);
+
 }

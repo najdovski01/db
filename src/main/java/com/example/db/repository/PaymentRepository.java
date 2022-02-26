@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.Optional;
 
 public interface PaymentRepository extends JpaRepository<Payment, Integer> {
-
-    @Query(value="select * from payment ", nativeQuery = true)
-    Optional<Payment> findAllPayments();
+//
+//    @Query(value="select * from payment ", nativeQuery = true)
+//    Optional<Payment> findAllPayments();
 }

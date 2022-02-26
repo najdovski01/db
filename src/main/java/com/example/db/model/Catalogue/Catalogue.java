@@ -7,7 +7,7 @@ import java.time.ZonedDateTime;
 
 @Entity
 @Data
-@Table(name="catalogue", schema="project")
+@Table(name="catalogue")
 public class Catalogue {
 
     @EmbeddedId

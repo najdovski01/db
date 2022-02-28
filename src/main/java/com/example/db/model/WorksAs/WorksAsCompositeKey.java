@@ -1,7 +1,7 @@
 package com.example.db.model.WorksAs;
 
 import com.example.db.model.Roles;
-import com.example.db.model.User;
+import com.example.db.model.Users;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -17,18 +17,18 @@ public class WorksAsCompositeKey implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="user_id")
-    public User user;
+    public Users users;
 
     @ManyToOne
     @JoinColumn(name="id_role")
     public Roles roles;
 
-    public User getUser() {
-        return user;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 
     public Roles getRoles() {

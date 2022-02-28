@@ -18,18 +18,18 @@ public class Shipping {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    public User user;
+    public Users users;
 
     @ManyToOne
     @JoinColumn(name = "shopping_id")
     public ShoppingBag shoppingBag;
 
-    public Shipping(Integer shipping_id, String locations, ZonedDateTime date_from, ZonedDateTime date_to, User user, ShoppingBag shoppingBag) {
+    public Shipping(Integer shipping_id, String locations, ZonedDateTime date_from, ZonedDateTime date_to, Users users, ShoppingBag shoppingBag) {
         this.shipping_id = shipping_id;
         this.locations = locations;
         this.date_from = date_from;
         this.date_to = date_to;
-        this.user = user;
+        this.users = users;
         this.shoppingBag = shoppingBag;
     }
 
@@ -69,12 +69,12 @@ public class Shipping {
         this.date_to = date_to;
     }
 
-    public User getUser() {
-        return user;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 
     public ShoppingBag getShoppingBag() {

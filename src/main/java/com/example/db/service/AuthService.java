@@ -1,10 +1,10 @@
 package com.example.db.service;
 
-import com.example.db.model.User;
+import com.example.db.model.Users;
 
 import java.util.Optional;
 
 public interface AuthService {
-    public Optional<User> login(String username, String password);
+    public Optional<Users> login(String username, String password);
 
 }

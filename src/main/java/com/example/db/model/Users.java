@@ -10,7 +10,7 @@ import java.util.Collection;
 @Data
 @Entity
 @Table(name="users")
-public class User implements UserDetails {
+public class Users implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,17 +19,17 @@ public class User implements UserDetails {
     private String surname;
     private String email;
     private String username;
-    private String password;
+    private String user_password;
 
-    public User() {}
+    public Users() {}
 
-    public User(Integer user_id, String name, String surname, String email, String username, String password) {
+    public Users(Integer user_id, String name, String surname, String email, String username, String user_password) {
         this.user_id = user_id;
         this.user_name = user_name;
         this.surname = surname;
         this.email = email;
         this.username = username;
-        this.password = password;
+        this.user_password = user_password;
     }
 
     public Integer getUser_id() {
@@ -72,12 +72,12 @@ public class User implements UserDetails {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getUser_password() {
+        return user_password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUser_password(String user_password) {
+        this.user_password = user_password;
     }
     @Override
     public boolean isAccountNonExpired() {
@@ -101,6 +101,11 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public String getPassword() {
         return null;
     }
 

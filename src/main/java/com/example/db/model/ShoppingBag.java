@@ -19,14 +19,14 @@ public class ShoppingBag {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    public User user;
+    public Users users;
 
-    public ShoppingBag(Integer shopping_id, ZonedDateTime order_date, ZonedDateTime shipping_date, ZonedDateTime modified, User user) {
+    public ShoppingBag(Integer shopping_id, ZonedDateTime order_date, ZonedDateTime shipping_date, ZonedDateTime modified, Users users) {
         this.shopping_id = shopping_id;
         this.order_date = order_date;
         this.shipping_date = shipping_date;
         this.modified = modified;
-        this.user = user;
+        this.users = users;
     }
 
     public ShoppingBag() {
@@ -65,11 +65,11 @@ public class ShoppingBag {
         this.modified = modified;
     }
 
-    public User getUser() {
-        return user;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

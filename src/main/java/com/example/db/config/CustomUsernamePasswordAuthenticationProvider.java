@@ -1,7 +1,6 @@
 package com.example.db.config;
 
-import com.example.db.service.UserService;
-import org.springframework.context.annotation.Configuration;
+import com.example.db.service.UsersService;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -15,12 +14,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class CustomUsernamePasswordAuthenticationProvider implements AuthenticationProvider {
 
-    private final UserService userService;
+    private final UsersService usersService;
     private final PasswordEncoder passwordEncoder;
 
 
-    public CustomUsernamePasswordAuthenticationProvider(UserService userService, PasswordEncoder passwordEncoder) {
-        this.userService = userService;
+    public CustomUsernamePasswordAuthenticationProvider(UsersService usersService, PasswordEncoder passwordEncoder) {
+        this.usersService = usersService;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -32,7 +31,7 @@ public class CustomUsernamePasswordAuthenticationProvider implements Authenticat
         if ("".equals(username) || "".equals(password)) {
             throw new BadCredentialsException("Invalid Credentials");
         }
-        UserDetails userDetails = this.userService.loadUserByUsername(username);
+        UserDetails userDetails = this.usersService.loadUserByUsername(username);
         if(passwordEncoder.matches(password,userDetails.getPassword()))
         {
             throw new BadCredentialsException("Invalid Credentials");

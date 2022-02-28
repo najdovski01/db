@@ -1,11 +1,8 @@
 package com.example.db.model.Exists;
 
 import com.example.db.model.Catalogue.Catalogue;
-import com.example.db.model.OnlineStores;
 import com.example.db.model.ProductInStore;
-import com.example.db.model.User;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;

@@ -1,6 +1,6 @@
 package com.example.db.model.ShippingEmployee;
 
-import com.example.db.model.User;
+import com.example.db.model.Users;
 
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
@@ -13,22 +13,22 @@ public class ShippingEmployeeCompositeKey implements Serializable {
     @ManyToOne
     @JoinColumn(name="user_id")
 
-    public User user;
+    public Users users;
 
-    public ShippingEmployeeCompositeKey(User user) {
-        this.user = user;
+    public ShippingEmployeeCompositeKey(Users users) {
+        this.users = users;
     }
 
     public ShippingEmployeeCompositeKey() {
 
     }
 
-    public User getUser() {
-        return user;
+    public Users getUser() {
+        return users;
     }
 
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Users users) {
+        this.users = users;
     }
 }

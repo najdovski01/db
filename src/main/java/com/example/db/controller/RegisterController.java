@@ -1,7 +1,7 @@
 package com.example.db.controller;
 import com.example.db.exceptions.InvalidArgumentsException;
 import com.example.db.service.AuthService;
-import com.example.db.service.UserService;
+import com.example.db.service.UsersService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/register")
 public class RegisterController {
     private final AuthService authService;
-    private final UserService userService;
+    private final UsersService usersService;
 
-    public RegisterController(AuthService authService, UserService userService) {
+    public RegisterController(AuthService authService, UsersService usersService) {
         this.authService = authService;
-        this.userService = userService;
+        this.usersService = usersService;
     }
 
     @GetMapping
@@ -35,9 +35,9 @@ public class RegisterController {
                            @RequestParam String surname,
                            @RequestParam String email,
                            @RequestParam String username,
-                           @RequestParam String password){
+                           @RequestParam String user_password){
         try{
-            this.userService.register(user_id, user_name, surname, email, username, password);
+            this.usersService.register(user_id, user_name, surname, email, username, user_password);
             return "redirect:/login";
         } catch(InvalidArgumentsException exception){
             return "redirect:/register?error=" + exception.getMessage();

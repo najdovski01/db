@@ -3,7 +3,7 @@ package com.example.db.controller;
 
 import com.example.db.exceptions.InvalidUserCredentialsException;
 import com.example.db.model.Users;
-import com.example.db.service.AuthService;
+import com.example.db.service.UsersService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Optional;
-/*
+
 @Controller
 @RequestMapping("/login")
 public class LoginController {
 
-    private final AuthService authService;
+    private final UsersService usersService;
 
-    public LoginController(AuthService authService) {
-        this.authService = authService;
+    public LoginController(UsersService usersService) {
+        this.usersService = usersService;
     }
+
 
     @GetMapping
     public String getLoginPage(){
@@ -30,13 +30,15 @@ public class LoginController {
 
     @PostMapping
     public String login(HttpServletRequest request, Model model){
-        Optional<Users> user = null;
+        Users users = null;
         try{
-            user = this.authService.login(request.getParameter("username"),
-                    request.getParameter("password"));
-            request.getSession().setAttribute("user", user);
+            users = this.usersService.login(request.getParameter("username"),
+                    request.getParameter("userPassword"));
+            request.getSession().setAttribute("user",users);
             return "redirect:/home";
-        }catch(InvalidUserCredentialsException exception){
+        }
+        catch (InvalidUserCredentialsException exception)
+        {
             model.addAttribute("hasError", true);
             model.addAttribute("error", exception.getMessage());
             return "login";
@@ -44,4 +46,3 @@ public class LoginController {
     }
 
 }
-*/

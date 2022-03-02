@@ -10,59 +10,31 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer product_id;
-    String names;
-    Boolean in_store;
-    String sizes;
-    String color;
+    @Column(name = "product_id", nullable = false)
+    private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    public Category category;
+    @Column(name = "names", nullable = false, length = 50)
+    private String names;
 
-    public Product(Integer product_id, String names, Boolean in_store, String sizes, String color, Category category) {
-        this.product_id = product_id;
-        this.names = names;
-        this.in_store = in_store;
-        this.sizes = sizes;
-        this.color = color;
+    @Column(name = "in_store", nullable = false)
+    private Boolean inStore = false;
+
+    @Column(name = "sizes", nullable = false, length = 50)
+    private String sizes;
+
+    @Column(name = "color", nullable = false, length = 50)
+    private String color;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
         this.category = category;
-    }
-
-    public Product() {
-
-    }
-
-    public Integer getProduct_id() {
-        return product_id;
-    }
-
-    public void setProduct_id(Integer product_id) {
-        this.product_id = product_id;
-    }
-
-    public String getNames() {
-        return names;
-    }
-
-    public void setNames(String names) {
-        this.names = names;
-    }
-
-    public Boolean getIn_store() {
-        return in_store;
-    }
-
-    public void setIn_store(Boolean in_store) {
-        this.in_store = in_store;
-    }
-
-    public String getSizes() {
-        return sizes;
-    }
-
-    public void setSizes(String sizes) {
-        this.sizes = sizes;
     }
 
     public String getColor() {
@@ -73,11 +45,35 @@ public class Product {
         this.color = color;
     }
 
-    public Category getCategory() {
-        return category;
+    public String getSizes() {
+        return sizes;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setSizes(String sizes) {
+        this.sizes = sizes;
+    }
+
+    public Boolean getInStore() {
+        return inStore;
+    }
+
+    public void setInStore(Boolean inStore) {
+        this.inStore = inStore;
+    }
+
+    public String getNames() {
+        return names;
+    }
+
+    public void setNames(String names) {
+        this.names = names;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

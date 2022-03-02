@@ -10,56 +10,30 @@ import javax.persistence.*;
 public class OnlineStores {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer store_id;
-    String names;
-    String web_address;
-    String phone_number;
-    String email;
-    String social_media;
+    @Column(name = "store_id", nullable = false)
+    private Integer id;
 
-    public OnlineStores(Integer store_id, String names, String web_address, String phone_number, String email, String social_media) {
-        this.store_id = store_id;
-        this.names = names;
-        this.web_address = web_address;
-        this.phone_number = phone_number;
-        this.email = email;
-        this.social_media = social_media;
+    @Column(name = "names", nullable = false, length = 50)
+    private String names;
+
+    @Column(name = "web_address", nullable = false, length = 50)
+    private String webAddress;
+
+    @Column(name = "phone_number", nullable = false, length = 50)
+    private String phoneNumber;
+
+    @Column(name = "email", nullable = false, length = 50)
+    private String email;
+
+    @Column(name = "social_media", nullable = false, length = 50)
+    private String socialMedia;
+
+    public String getSocialMedia() {
+        return socialMedia;
     }
 
-    public OnlineStores() {
-
-    }
-
-    public Integer getStore_id() {
-        return store_id;
-    }
-
-    public void setStore_id(Integer store_id) {
-        this.store_id = store_id;
-    }
-
-    public String getNames() {
-        return names;
-    }
-
-    public void setNames(String names) {
-        this.names = names;
-    }
-
-    public String getWeb_address() {
-        return web_address;
-    }
-
-    public void setWeb_address(String web_address) {
-        this.web_address = web_address;
-    }
-
-    public String getPhone_number() {
-        return phone_number;
-    }
-
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setSocialMedia(String socialMedia) {
+        this.socialMedia = socialMedia;
     }
 
     public String getEmail() {
@@ -70,11 +44,35 @@ public class OnlineStores {
         this.email = email;
     }
 
-    public String getSocial_media() {
-        return social_media;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setSocial_media(String social_media) {
-        this.social_media = social_media;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getWebAddress() {
+        return webAddress;
+    }
+
+    public void setWebAddress(String webAddress) {
+        this.webAddress = webAddress;
+    }
+
+    public String getNames() {
+        return names;
+    }
+
+    public void setNames(String names) {
+        this.names = names;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

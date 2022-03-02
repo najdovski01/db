@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>ShopAHolic</title>
+    <title>OnlineStores</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</head>
 
+</head>
 <body>
 <header xmlns:th="http://www.thymeleaf.org">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -25,7 +25,7 @@
                         <a class="nav-link active" href="/home">Home</a>
                     </li>
                     <li class="nav-item m-auto" >
-                        <a class="nav-link active" href="/onlinestores">Shops</a>
+                        <a class="nav-link active" href="/onlinestores">Books</a>
                     </li>
                     <li class="nav-item m-auto" >
                         <a class="nav-link active" href="/products">Products</a>
@@ -61,12 +61,50 @@
     </nav>
 </header>
 
-<section class="jumbotron text-center" xmlns:th="http://www.thymeleaf.org">
-    <div class="container">
-        <h1 class="jumbotron-heading">ShopAHolic</h1>
-    </div>
-</section>
+<div th:block xmlns:th="http://www.thymeleaf.org">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h3 class="jumbotron-heading">Products</h3>
+        </div>
+    </section>
+    <!--  <th:block th:if="${session.user != null}" th:text="${session.user.getUsername()}"></th:block>-->
 
+    <div th:if="${hasError}">
+        <h5 class="text-center text-danger" th:text="${error}"></h5>
+    </div>
+
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-12" th:if="${products.size() > 0}">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">In Store</th>
+                            <th scope="col">Size</th>
+                            <th scope="col">Color</th>
+                            <th scope="col">Category</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="products : ${products}" class="product">
+                            <td th:text="${products.getNames()}"></td>
+                            <td th:text="${products.getInStore()}"></td>
+                            <td th:text="${products.getSizes()}"></td>
+                            <td th:text="${products.getColor}"></td>
+                            <td th:text="${products.getCategory().getCategory_name()}"></td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
 
 <footer class="text-black-50 mt-xl-5" xmlns:th="http://www.thymeleaf.org">
     <div class="container">
@@ -75,7 +113,8 @@
                 <h5>About</h5>
                 <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
                 <p class="mb-0">
-                    Se najubavo
+                    Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
+                    impression.
                 </p>
             </div>
 

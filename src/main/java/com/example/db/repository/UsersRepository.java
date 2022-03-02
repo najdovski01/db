@@ -5,15 +5,18 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface UsersRepository extends JpaRepository<Users, Integer>
 {
-    @Query(value="select * from project.users where username=? AND user_password=?",nativeQuery = true)
-    Optional<Users> findByUsernameAndPassword(String username, String user_password);
+    Optional<Users> findById(Integer id);
 
-    @Query(value="select * from project.users where username=?",nativeQuery = true)
-    Optional<Users> findByUsername(String username);
+    List<Users> findByUserNameAndSurname(String userName, String surname);
+
+    Optional<Users> findByUsernameAndUserPassword(String username, String userPassword);
+
+    List<Users> findByEmail(String email);
 
 }

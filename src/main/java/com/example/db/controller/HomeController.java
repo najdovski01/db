@@ -6,14 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(value={"/", "/home"})
+@RequestMapping({"/","/home"})
 public class HomeController {
-
     @GetMapping
-    public String getViewHome(Model model) {
-
-        model.addAttribute("bodyContent","home");
-        return "master-template";
+    public String getHomePage(){
+        return "home";
     }
-
 }

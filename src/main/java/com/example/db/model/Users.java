@@ -1,8 +1,6 @@
 package com.example.db.model;
 
 import lombok.Data;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -10,58 +8,34 @@ import java.util.Collection;
 @Data
 @Entity
 @Table(name="users")
-public class Users implements UserDetails {
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer user_id;
-    private String user_name;
+    @Column(name = "user_id", nullable = false)
+    private Integer id;
+
+    @Column(name = "user_name", nullable = false, length = 50)
+    private String userName;
+
+    @Column(name = "surname", nullable = false, length = 50)
     private String surname;
+
+    @Column(name = "email", nullable = false, length = 50)
     private String email;
+
+    @Column(name = "username", nullable = false, length = 50)
     private String username;
-    private String user_password;
 
-    public Users() {}
+    @Column(name = "user_password", nullable = false, length = 50)
+    private String userPassword;
 
-    public Users(Integer user_id, String name, String surname, String email, String username, String user_password) {
-        this.user_id = user_id;
-        this.user_name = user_name;
-        this.surname = surname;
-        this.email = email;
-        this.username = username;
-        this.user_password = user_password;
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public Integer getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
-    }
-
-    public String getName() {
-        return user_name;
-    }
-
-    public void setName(String name) {
-        this.user_name = user_name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
     public String getUsername() {
@@ -72,42 +46,35 @@ public class Users implements UserDetails {
         this.username = username;
     }
 
-    public String getUser_password() {
-        return user_password;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUser_password(String user_password) {
-        this.user_password = user_password;
-    }
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
+    public String getSurname() {
+        return surname;
     }
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    @Override
-    public boolean isEnabled() {
-        return false;
+    public String getUserName() {
+        return userName;
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    @Override
-    public String getPassword() {
-        return null;
+    public Integer getId() {
+        return id;
     }
 
-
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }
